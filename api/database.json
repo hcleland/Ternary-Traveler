@@ -1,20 +1,51 @@
 {
-    "places": [
-        {
-            "id": 1,
-            "name": "Italy",
-            "visa_required": false
-        },
-        {
-            "id": 2,
-            "name": "Switzerland",
-            "visa_required": true
-        },
-        {
-            "id": 3,
-            "name": "France",
-            "visa_required": false
-        }
-    ],
-    "interests": []
+  "places": [
+    {
+      "id": 1,
+      "name": "Italy",
+      "visa_required": false
+    },
+    {
+      "id": 2,
+      "name": "Switzerland",
+      "visa_required": true
+    },
+    {
+      "id": 3,
+      "name": "France",
+      "visa_required": false
+    }
+  ],
+  "interests": [
+    {
+      "id": 1,
+      "placeId": 1,
+      "name": "Local Market",
+      "description": "Local market where you can try purchase local products and try the local food",
+      "cost": 0,
+      "review": ""
+    },
+    {
+      "id": 2,
+      "placeId": 2,
+      "name": "First Tennessee Park",
+      "description": "Home to the Nashville Sounds! Come root, root for the home team at Nashville's recently stadium for its local Triple-A baseball team the Nashville Sounds.",
+      "cost": 35,
+      "review": ""
+    },
+    {
+      "name": "test name",
+      "description": "test description",
+      "cost": "5",
+      "review": "test text area",
+      "id": 3
+    },
+    {
+      "name": "test name 2",
+      "description": "test description 2",
+      "cost": "5",
+      "review": "test review 2",
+      "id": 4
+    }
+  ]
 }

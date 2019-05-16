@@ -22,10 +22,24 @@ const allInterestsHTML = (interests) => {
         <h3>Description: ${interest.description}</h3>
         <h3>Cost: ${interest.cost}</h3>
         <h3>Review: ${interest.review}</h3>
-        <button id="submitReview">Add a Review</button>
+        <button class="reviewBtn">Try It</button>
+        <div class="reviewOutput"></div>
         </div>
         </section>
         `
+    })
+    buildReviewForm();
+}
+
+const buildReviewForm = () => {
+    document.querySelectorAll(".reviewBtn").forEach(buildReviewForm => {
+        buildReviewForm.addEventListener("click", (event) => {
+            console.log("button clicked");
+            let reviewOutput = document.querySelector(".reviewOutput")
+            reviewOutput.innerHTML = `
+                <textarea></textarea>
+                `
+        })
     })
 }
 
@@ -67,6 +81,8 @@ const displayForm = () => {
     })
 }
 
+allInterestsFromDB();
+
 const saveNewInterest = () => {
     let nameInput = document.getElementById("interestNameInput").value
     let descriptionInput = document.getElementById("interestDescriptionInput").value
@@ -82,6 +98,21 @@ const saveNewInterest = () => {
     APIManager.createNewInterest(interestObj)
         .then(allResults => {
             console.log(allResults);
+            document.getElementById("interestForm").reset();
+            APIManager.getAllInterests()
+                .then(result => {
+                    allInterestsFromDB(result);
+                })
+        })
+}
+
+const saveNewReview = () => {
+    let reviewInput = document.getElementById("#reviewOutput").value
+    const interestObj = {
+        review: reviewInput
+    }
+    APIManager.createNewInterest(interestObj)
+        .then(allResults => {
             APIManager.getAllInterests()
                 .then(result => {
                     allInterestsFromDB(result);
@@ -90,5 +121,7 @@ const saveNewInterest = () => {
 }
 
 displayForm();
-allInterestsFromDB();
+// reviewDisplay.buildReviewForm();
+
+// allInterestsFromDB();
 
